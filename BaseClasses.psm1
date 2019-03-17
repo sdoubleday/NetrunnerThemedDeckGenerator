@@ -44,6 +44,30 @@ class Card {
 
 }<# END class Card #>
 
+class Faction {
+    [int]$id
+    [string]$code
+    [string]$name
+    [boolean]$isMini
+    [PSObject[]]$decklists
+    [Side]$side
+    [PSObject[]]$cards
+    [DateTime]$dateCreation
+    [DateTime]$dateUpdate
+    [string]$color
+}<# END class Faction #>
+
+class Mwl {
+    [int]$id
+    [string]$code
+    [string]$name
+    [DateTime]$dateStart
+    [boolean]$active
+    [PSObject[]]$cards
+    [PSObject[]]$legalities
+    [DateTime]$dateCreation
+    [DateTime]$dateUpdate
+}<# END class Mwl #>
 
 class Pack {
     [int]$id
@@ -61,7 +85,6 @@ class Pack {
     [int]$cardCount
 }<# END class Pack #>
 
-
 class Side {
     [int]$id
     [string]$name
@@ -73,8 +96,6 @@ class Side {
     [DateTime]$dateCreation
     [DateTime]$dateUpdate
 }<# END class Side #>
-
-
 
 class Type {
     [int]$id
