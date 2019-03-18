@@ -44,6 +44,20 @@ class Card {
 
 }<# END class Card #>
 
+class Cycle {
+    [Rotation[]]$rotations
+    [int]$id
+    [string]$code
+    [string]$name
+    [int]$position
+    [int]$size
+    [boolean]$rotated
+    [Pack[]]$packs
+    [DateTime]$dateCreation
+    [DateTime]$dateUpdate
+
+}<# END class Cycle #>
+
 class Faction {
     [int]$id
     [string]$code
