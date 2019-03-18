@@ -1,73 +1,54 @@
 <#
-borrowed from the NetrunnerDB github project
-https://github.com/Alsciende/netrunnerdb/blob/master/src/AppBundle/Entity/
+borrowed from the NetrunnerDB APIs
+https://netrunnerdb.com/api/doc
 #>
 
 
 class Card {
 #region Properties
-    [int]$id
-    [DateTime]$dateUpdate
     [string]$code
     [string]$title
     [string]$keywords#nullable
     [string]$text
-    [int]$advancementCost
-    [int]$agendaPoints
-    [int]$baseLink
+    [int]$advancement_cost
+    [int]$agenda_points
+    [int]$base_link
     [int]$cost#nullable
-    [int]$factionCost#nullable
+    [int]$faction_cost#nullable
     [string]$flavor#nullable
     [string]$illustrator
-    [int]$influenceLimit#nullable
-    [int]$memoryCost
-    [int]$minimumDeckSize
+    [int]$influence_limit#nullable
+    [int]$memory_cost
+    [int]$minimum_deck_size
     [int]$position
     [int]$quantity
     [int]$strength
-    [int]$trashCost#nullable
+    [int]$trash_cost#nullable
     [boolean]$uniqueness
-    [int]$deckLimit
-    [PSObject[]]$decklists
-    [Pack]$pack
-    [Type]$type
-    [Faction]$faction
-    [Side]$side
-    [string]$imageUrl#nullable
-    [PSObject[]]$reviews
-    [PSObject[]]$rulings
-    [DateTime]$dateCreation
-    [int]$globalPenalty#nullable
-    [int]$universalFactionCost#nullable
-    [boolean]$isRestricted
+    [int]$deck_limit
+    [string]$pack_code
+    [string]$type_code
+    [string]$faction_code
+    [string]$side_code
+    [string]$image_url#nullable
 #endregion Properties
 
 }<# END class Card #>
 
 class Cycle {
-    [Rotation[]]$rotations
-    [int]$id
     [string]$code
     [string]$name
     [int]$position
     [int]$size
     [boolean]$rotated
-    [Pack[]]$packs
-    [DateTime]$dateCreation
-    [DateTime]$dateUpdate
 
 }<# END class Cycle #>
 
 class Faction {
-    [int]$id
     [string]$code
     [string]$name
-    [boolean]$isMini
-    [PSObject[]]$decklists
-    [Side]$side
-    [PSObject[]]$cards
-    [DateTime]$dateCreation
-    [DateTime]$dateUpdate
+    [boolean]$is_mini
+    [Side]$side_code
     [string]$color
 }<# END class Faction #>
 
@@ -75,51 +56,33 @@ class Mwl {
     [int]$id
     [string]$code
     [string]$name
-    [DateTime]$dateStart
+    [DateTime]$date_start
     [boolean]$active
     [PSObject[]]$cards
-    [PSObject[]]$legalities
-    [DateTime]$dateCreation
-    [DateTime]$dateUpdate
+    [DateTime]$date_creation
+    [DateTime]$date_update
 }<# END class Mwl #>
 
 class Pack {
-    [int]$id
     [string]$code
     [string]$name
-    [DateTime]$dateRelease#nullable
+    [DateTime]$date_release#nullable
     [int]$size
     [int]$position
     [int]$ffgId#nullable
-    [PSObject[]]$decklists
-    [PSObject[]]$cards
-    [Cycle]$cycle
-    [DateTime]$dateCreation
-    [DateTime]$dateUpdate
-    [int]$cardCount
+    [string]$cycle_code
 }<# END class Pack #>
 
 class Side {
-    [int]$id
     [string]$name
-    [PSObject[]]$cards
-    [PSObject[]]$factions
-    [PSObject[]]$decks
-    [PSObject[]]$decklists
     [string]$code
-    [DateTime]$dateCreation
-    [DateTime]$dateUpdate
 }<# END class Side #>
 
 class Type {
-    [int]$id
     [string]$code
     [string]$name
-    [Side]$side
-    [boolean]$isSubtype
-    [DateTime]$dateCreation
-    [DateTime]$dateUpdate
+    [string]$side_code
+    [boolean]$is_subtype
     [int]$position
-    [PSObject[]]$cards
 }<# END class Type #>
 
