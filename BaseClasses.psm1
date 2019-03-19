@@ -44,6 +44,19 @@ class Cycle {
 
 }<# END class Cycle #>
 
+class DeckList {
+    [int]$id
+    [DateTime]$date_creation
+    [DateTime]$date_update
+    [string]$name
+    [string]$description
+    [int]$user_id
+    [string]$user_name
+    [boolean]$tournament_badge
+    [string[]]$cards#"card_code=count"
+    [string]$mwl_code
+}<# END class DeckList #>
+
 class Faction {
     [string]$code
     [string]$name
