@@ -6,7 +6,11 @@ $script = [ScriptBlock]::Create($scriptBody)
 . $script
 
 Describe "NetrunnerThemedDeckGenerator" {
-    It "does something useful" {
-        $true | Should -Be $false
-    }
+    
+    $TestStrings = @(
+    '$(Invoke-RestMethod "https://netrunnerdb.com/api/2.0/public/cards" | Select-Object -ExpandProperty data  | Select-Object -First 1 | New-Object-CardNTDG-CardFromApi ).GetType().Name | Should Be "CardNTDG"'
+    )
+    foreach ($t in $TestStrings) {
+        It $t { Invoke-Expression $t}  
+    }<# END foreach ($t in $TestStrings) #>
 }
