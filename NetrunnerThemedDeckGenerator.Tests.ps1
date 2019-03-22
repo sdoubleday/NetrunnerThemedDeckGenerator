@@ -5,12 +5,32 @@ $scriptBody = "using module $here\$sut"
 $script = [ScriptBlock]::Create($scriptBody)
 . $script
 
-Describe "NetrunnerThemedDeckGenerator" {
-    
+Describe "NetrunnerThemedDeckGenerator Fetches" {
+
     $TestStrings = @(
-    '$(Invoke-RestMethod "https://netrunnerdb.com/api/2.0/public/cards" | Select-Object -ExpandProperty data  | Select-Object -First 1 | New-Object-CardNTDG-CardFromApi ).GetType().Name | Should Be "CardNTDG"'
+    '$( Fetch-Cards | select-object -first 1 ).GetType().Name | Should Be "CardNTDG"'
     )
     foreach ($t in $TestStrings) {
         It $t { Invoke-Expression $t}  
     }<# END foreach ($t in $TestStrings) #>
-}
+
+}<# END Describe "NetrunnerThemedDeckGenerator Fetches" #>
+
+Describe "NetrunnerThemedDeckGenerator" {
+    BEFOREALL{
+        $allCards = Fetch-Cards
+    }
+
+    Context 'Constructors' {
+        
+    $TestStrings = @(
+        '$( New-Object-CardNTDG-CardFromApi ).GetType().Name | SHOULD BE "CardNTDG"'
+    )
+    foreach ($t in $TestStrings) {
+        It $t { Invoke-Expression $t}  
+    }<# END foreach ($t in $TestStrings) #>
+
+    }
+
+}<# END Describe "NetrunnerThemedDeckGenerator" #>
+

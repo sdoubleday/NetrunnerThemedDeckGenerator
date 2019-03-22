@@ -45,6 +45,14 @@ class CardNTDG : Card {
     [boolean]$utility_flag
 
 
+    [ConstructorName('Empty')]
+    CardNTDG() {
+        #CardNTDG specific properties
+        #Available_quantity is updated when the cycles, cores, and packs are established.
+        $this.available_quantity = 0
+        $this.utility_flag = $false
+    }<# END [ConstructorName('Empty')]CardNTDG() #>
+
     [ConstructorName('CardFromApi')]
     CardNTDG(
          [string]$code
@@ -105,7 +113,7 @@ class CardNTDG : Card {
         $this.available_quantity = 0
         $this.utility_flag = $false
 
-    }<# End CardNTDG() #>
+    }<# End [ConstructorName('CardFromApi')] CardNTDG(...) #>
 
 }<# End class CardNTDG #>
 
@@ -144,6 +152,16 @@ PROCESS{
 $([CardNTDG].GetConstructors() | Where-Object {$_.GetCustomAttributes('ConstructorName').Name -Like 'CardFromApi'} ).Invoke(@($code,$title,$keywords,$text,$advancement_cost,$agenda_points,$base_link,$cost,$faction_cost,$flavor,$illustrator,$influence_limit,$memory_cost,$minimum_deck_size,$position,$quantity,$strength,$trash_cost,$uniqueness,$deck_limit,$pack_code,$type_code,$faction_code,$side_code,$image_url))
 }
 END{}
+}<# END New-Object-CardNTDG-CardFromApi #>
+ 
+ 
+FUNCTION New-Object-CardNTDG-Empty {
+[CmdletBinding(PositionalBinding=$true)]
+PARAM()
+BEGIN{}
+PROCESS{
+$([CardNTDG].GetConstructors() | Where-Object {$_.GetCustomAttributes('ConstructorName').Name -Like 'Empty'} ).Invoke(@($))
 }
+END{}
+}<# END New-Object-CardNTDG-Empty #>
         
-
