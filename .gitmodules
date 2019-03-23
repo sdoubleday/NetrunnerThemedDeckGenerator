@@ -1,3 +1,6 @@
 [submodule "New-FunctionFromConstructors"]
 	path = New-FunctionFromConstructors
 	url = ../New-FunctionFromConstructors.git
+[submodule "New-DynamicParameter"]
+	path = New-DynamicParameter
+	url = ../New-DynamicParameter
