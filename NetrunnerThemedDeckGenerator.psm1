@@ -85,12 +85,13 @@ PARAM(
 [Parameter(Mandatory= $true,ValueFromPipeline= $true)][CardNTDG[]]$CardSet
 )
     DynamicParam {
-        $set = $CardSet.Name
-        (New-DynamicParameter -Name 'Title' -Type String -ValidateSet $set ) | New-DynamicParameterDictionary 
+        $set = $CardSet.Title
+        (New-DynamicParameter -Name 'Title' -ValidateSet $set ) | New-DynamicParameterDictionary 
     }
     BEGIN{}
     PROCESS {
-
+        $return = $CardSet | Where-Object { $_.Title -like $PSBoundParameters['Title'] }
+        return $return
     }
     END{}
 
