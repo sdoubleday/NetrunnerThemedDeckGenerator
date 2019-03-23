@@ -11,20 +11,35 @@ Describe "NetrunnerThemedDeckGenerator Fetches" {
     '$( Fetch-Cards | select-object -first 1 ).GetType().Name | Should Be "CardNTDG"'
     )
     foreach ($t in $TestStrings) {
-        It $t { Invoke-Expression $t}  
+        It -Skip $t { Invoke-Expression $t}  
     }<# END foreach ($t in $TestStrings) #>
 
 }<# END Describe "NetrunnerThemedDeckGenerator Fetches" #>
+
+Describe "NetrunnerThemedDeckGenerator Constructors" {
+
+    Context 'Constructors' {
+        
+    $TestStrings = @(
+        '$( New-Object-CardNTDG-Empty ).GetType().Name | SHOULD BE "CardNTDG"'
+    )
+    foreach ($t in $TestStrings) {
+        It $t { Invoke-Expression $t}  
+    }<# END foreach ($t in $TestStrings) #>
+
+    }
+
+}<# END Describe "NetrunnerThemedDeckGenerator Constructors" #>
 
 Describe "NetrunnerThemedDeckGenerator" {
     BEFOREALL{
         $allCards = Fetch-Cards
     }
 
-    Context 'Constructors' {
+    Context 'Cards' {
         
     $TestStrings = @(
-        '$( New-Object-CardNTDG-CardFromApi ).GetType().Name | SHOULD BE "CardNTDG"'
+
     )
     foreach ($t in $TestStrings) {
         It $t { Invoke-Expression $t}  
