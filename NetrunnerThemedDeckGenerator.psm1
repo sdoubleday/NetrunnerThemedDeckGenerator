@@ -73,5 +73,145 @@ END{}
 }<# END New-Object-CardNTDG-Empty #>
         
 
+FUNCTION New-Object-CycleNTDG-Empty {
+        [CmdletBinding(PositionalBinding=$true)]
+        PARAM()
+        BEGIN{}
+        PROCESS{
+        $([CycleNTDG].GetConstructors() | Where-Object {$_.GetCustomAttributes('ConstructorName').Name -Like 'Empty'} ).Invoke(@())
+        }
+        END{}
+        }
+        
+
+FUNCTION New-Object-CycleNTDG-CardFromApi {
+        [CmdletBinding(PositionalBinding=$true)]
+        PARAM([PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][string]$code,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][string]$name,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][int]$position,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][int]$size,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][bool]$rotated)
+        BEGIN{}
+        PROCESS{
+        $([CycleNTDG].GetConstructors() | Where-Object {$_.GetCustomAttributes('ConstructorName').Name -Like 'CardFromApi'} ).Invoke(@($code,$name,$position,$size,$rotated))
+        }
+        END{}
+        }
+    
+
+FUNCTION New-Object-FactionNTDG-Empty {
+[CmdletBinding(PositionalBinding=$true)]
+PARAM()
+BEGIN{}
+PROCESS{
+$([FactionNTDG].GetConstructors() | Where-Object {$_.GetCustomAttributes('ConstructorName').Name -Like 'Empty'} ).Invoke(@())
+}
+END{}
+}
+        
+
+FUNCTION New-Object-FactionNTDG-CardFromApi {
+[CmdletBinding(PositionalBinding=$true)]
+PARAM([PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][string]$code,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][string]$name,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][bool]$is_mini,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][Side]$side_code,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][string]$color)
+BEGIN{}
+PROCESS{
+$([FactionNTDG].GetConstructors() | Where-Object {$_.GetCustomAttributes('ConstructorName').Name -Like 'CardFromApi'} ).Invoke(@($code,$name,$is_mini,$side_code,$color))
+}
+END{}
+}
+        
+
+FUNCTION New-Object-MwlNTDG-Empty {
+[CmdletBinding(PositionalBinding=$true)]
+PARAM()
+BEGIN{}
+PROCESS{
+$([MwlNTDG].GetConstructors() | Where-Object {$_.GetCustomAttributes('ConstructorName').Name -Like 'Empty'} ).Invoke(@())
+}
+END{}
+}
+        
+
+FUNCTION New-Object-MwlNTDG-CardFromApi {
+[CmdletBinding(PositionalBinding=$true)]
+PARAM([PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][int]$id,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][string]$code,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][string]$name,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][datetime]$date_start,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][bool]$active,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][psobject[]]$cards,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][datetime]$date_creation,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][datetime]$date_update)
+BEGIN{}
+PROCESS{
+$([MwlNTDG].GetConstructors() | Where-Object {$_.GetCustomAttributes('ConstructorName').Name -Like 'CardFromApi'} ).Invoke(@($id,$code,$name,$date_start,$active,$cards,$date_creation,$date_update))
+}
+END{}
+}
+        
+
+FUNCTION New-Object-PackNTDG-Empty {
+[CmdletBinding(PositionalBinding=$true)]
+PARAM()
+BEGIN{}
+PROCESS{
+$([PackNTDG].GetConstructors() | Where-Object {$_.GetCustomAttributes('ConstructorName').Name -Like 'Empty'} ).Invoke(@())
+}
+END{}
+}
+        
+
+FUNCTION New-Object-PackNTDG-CardFromApi {
+[CmdletBinding(PositionalBinding=$true)]
+PARAM(
+ [PARAMETER(Mandatory=$True ,ValueFromPipelineByPropertyName=$True)][string]$code
+,[PARAMETER(Mandatory=$True ,ValueFromPipelineByPropertyName=$True)][string]$name
+,[PARAMETER(Mandatory=$False,ValueFromPipelineByPropertyName=$True)][datetime]$date_release
+,[PARAMETER(Mandatory=$True ,ValueFromPipelineByPropertyName=$True)][int]$size
+,[PARAMETER(Mandatory=$True ,ValueFromPipelineByPropertyName=$True)][int]$position
+,[PARAMETER(Mandatory=$False,ValueFromPipelineByPropertyName=$True)][int]$ffgId
+,[PARAMETER(Mandatory=$True ,ValueFromPipelineByPropertyName=$True)][string]$cycle_code
+)
+BEGIN{}
+PROCESS{
+$([PackNTDG].GetConstructors() | Where-Object {$_.GetCustomAttributes('ConstructorName').Name -Like 'CardFromApi'} ).Invoke(@($code,$name,$date_release,$size,$position,$ffgId,$cycle_code))
+}
+END{}
+}
+        
+
+FUNCTION New-Object-SideNTDG-Empty {
+[CmdletBinding(PositionalBinding=$true)]
+PARAM()
+BEGIN{}
+PROCESS{
+$([SideNTDG].GetConstructors() | Where-Object {$_.GetCustomAttributes('ConstructorName').Name -Like 'Empty'} ).Invoke(@())
+}
+END{}
+}
+        
+
+FUNCTION New-Object-SideNTDG-CardFromApi {
+[CmdletBinding(PositionalBinding=$true)]
+PARAM([PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][string]$name,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][string]$code)
+BEGIN{}
+PROCESS{
+$([SideNTDG].GetConstructors() | Where-Object {$_.GetCustomAttributes('ConstructorName').Name -Like 'CardFromApi'} ).Invoke(@($name,$code))
+}
+END{}
+}
+        
+
+FUNCTION New-Object-CardTypeNTDG-Empty {
+[CmdletBinding(PositionalBinding=$true)]
+PARAM()
+BEGIN{}
+PROCESS{
+$([CardTypeNTDG].GetConstructors() | Where-Object {$_.GetCustomAttributes('ConstructorName').Name -Like 'Empty'} ).Invoke(@())
+}
+END{}
+}
+        
+
+FUNCTION New-Object-CardTypeNTDG-CardFromApi {
+[CmdletBinding(PositionalBinding=$true)]
+PARAM([PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][string]$code,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][string]$name,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][string]$side_code,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][bool]$is_subtype,[PARAMETER(Mandatory=$True,ValueFromPipelineByPropertyName=$True)][int]$position)
+BEGIN{}
+PROCESS{
+$([CardTypeNTDG].GetConstructors() | Where-Object {$_.GetCustomAttributes('ConstructorName').Name -Like 'CardFromApi'} ).Invoke(@($code,$name,$side_code,$is_subtype,$position))
+}
+END{}
+}
+        
+
 
 #endregion constructor functions
