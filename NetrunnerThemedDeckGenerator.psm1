@@ -75,3 +75,26 @@ END{}
 
 
 #endregion constructor functions
+
+#region cards
+
+Function Get-Card {
+[OutputType('CardNTDG')]
+[CmdletBinding()]
+PARAM(
+[Parameter(Mandatory= $true,ValueFromPipeline= $true)][CardNTDG[]]$CardSet
+)
+    DynamicParam {
+        $set = $CardSet.Name
+        (New-DynamicParameter -Name 'Title' -Type String -ValidateSet $set ) | New-DynamicParameterDictionary 
+    }
+    BEGIN{}
+    PROCESS {
+
+    }
+    END{}
+
+}<# END Function Get-Card #>
+
+#endregion cards
+

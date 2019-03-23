@@ -39,7 +39,7 @@ Describe "NetrunnerThemedDeckGenerator" {
     Context 'Cards' {
         
     $TestStrings = @(
-
+        '$(Get-Card -CardSet $allCards -Title "Crypsis").type_code | SHOULD BE "Program"'
     )
     foreach ($t in $TestStrings) {
         It $t { Invoke-Expression $t}  
