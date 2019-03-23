@@ -264,7 +264,7 @@ class SideNTDG : Side {
 
 }<# END class SideNTDG #>
 
-class CardCardTypeNTDG : CardType {
+class CardTypeNTDG : CardType {
 
     [ConstructorName('Empty')]
     CardTypeNTDG() {} <# END CardTypeNTDG() [ConstructorName('Empty')] #>
