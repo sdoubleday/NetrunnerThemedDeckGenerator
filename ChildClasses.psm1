@@ -112,3 +112,180 @@ class CardNTDG : Card {
     }<# End [ConstructorName('CardFromApi')] CardNTDG(...) #>
 
 }<# End class CardNTDG #>
+
+class CycleNTDG : Cycle {
+    
+    [ConstructorName('Empty')]
+    CycleNTDG() {} <# END CycleNTDG() [ConstructorName('Empty')] #>
+
+    [ConstructorName('CardFromApi')]
+    CycleNTDG(
+         [string]$code
+        ,[string]$name
+        ,[int]$position
+        ,[int]$size
+        ,[boolean]$rotated
+    ) {
+        $this.code    = $code
+        $this.name    = $name
+        $this.position= $position
+        $this.size    = $size
+        $this.rotated = $rotated       
+    } <# END  #>
+}<# END class CycleNTDG #>
+
+class DeckListNTDG : DeckList {
+    
+    [ConstructorName('Empty')]
+    DeckListNTDG() {} <# END DeckListNTDG() [ConstructorName('Empty')] #>
+
+    [ConstructorName('CardFromApi')]
+    DeckListNTDG(
+         [int]     $id
+        ,[DateTime]$date_creation
+        ,[DateTime]$date_update
+        ,[string]  $name
+        ,[string]  $description
+        ,[int]     $user_id
+        ,[string]  $user_name
+        ,[boolean] $tournament_badge
+        ,[string[]]$cards#"card_code=count"
+        ,[string]  $mwl_code
+    ) {
+        $this.id                      = $id
+        $this.date_creation           = $date_creation
+        $this.date_update             = $date_update
+        $this.name                    = $name
+        $this.description             = $description
+        $this.user_id                 = $user_id
+        $this.user_name               = $user_name
+        $this.tournament_badge        = $tournament_badge
+        $this.cards                   = $cards#"card_code=count"
+        $this.mwl_code                = $mwl_code
+    } <# END DeckListNTDG() [ConstructorName('CardFromApi')] #>
+
+}<# END class DeckListNTDG #>
+
+class FactionNTDG : Faction {
+
+    [ConstructorName('Empty')]
+    FactionNTDG() {} <# END FactionNTDG() [ConstructorName('Empty')] #>
+
+    [ConstructorName('CardFromApi')]
+    FactionNTDG(
+         [string] $code
+        ,[string] $name
+        ,[boolean]$is_mini
+        ,[Side]   $side_code
+        ,[string] $color
+    ) {
+        $this.code      = $code
+        $this.name      = $name
+        $this.is_mini   = $is_mini
+        $this.side_code = $side_code
+        $this.color     = $color
+    } <# END FactionNTDG() [ConstructorName('CardFromApi')] #>
+    
+}<# END class FactionNTDG #>
+
+class MwlNTDG : Mwl {
+    [int]$id
+    [string]$code
+    [string]$name
+    [DateTime]$date_start
+    [boolean]$active
+    [PSObject[]]$cards
+    [DateTime]$date_creation
+    [DateTime]$date_update
+    [ConstructorName('Empty')]
+    MwlNTDG() {} <# END MwlNTDG() [ConstructorName('Empty')] #>
+
+    [ConstructorName('CardFromApi')]
+    MwlNTDG(
+         [int]       $id
+        ,[string]    $code
+        ,[string]    $name
+        ,[DateTime]  $date_start
+        ,[boolean]   $active
+        ,[PSObject[]]$cards
+        ,[DateTime]  $date_creation
+        ,[DateTime]  $date_update
+    ) {
+        $this.id            = $id
+        $this.code          = $code
+        $this.name          = $name
+        $this.date_start    = $date_start
+        $this.active        = $active
+        $this.cards         = $cards
+        $this.date_creation = $date_creation
+        $this.date_update   = $date_update
+    } <# END MwlNTDG() [ConstructorName('CardFromApi')] #>
+
+}<# END class MwlNTDG #>
+
+class PackNTDG : Pack {
+    
+    [ConstructorName('Empty')]
+    PackNTDG() {} <# END PackNTDG() [ConstructorName('Empty')] #>
+
+    [ConstructorName('CardFromApi')]
+    PackNTDG(
+         [string]  $code
+        ,[string]  $name
+        ,[DateTime]$date_release#nullable
+        ,[int]     $size
+        ,[int]     $position
+        ,[int]     $ffgId#nullable
+        ,[string]  $cycle_code
+    ) {
+        $this.code         = $code
+        $this.name         = $name
+        $this.date_release = $date_release#nullable
+        $this.size         = $size
+        $this.position     = $position
+        $this.ffgId        = $ffgId#nullable
+        $this.cycle_code   = $cycle_code
+    } <# END PackNTDG() [ConstructorName('CardFromApi')] #>
+
+}<# END class PackNTDG #>
+
+class SideNTDG : Side {
+    [ConstructorName('Empty')]
+    SideNTDG() {} <# END SideNTDG() [ConstructorName('Empty')] #>
+
+    [ConstructorName('CardFromApi')]
+    SideNTDG(
+         [string]$name
+        ,[string]$code
+    ) {
+        $this.name = $name
+        $this.code = $code
+    } <# END SideNTDG() [ConstructorName('CardFromApi')] #>
+
+}<# END class SideNTDG #>
+
+class CardCardTypeNTDG : CardType {
+
+    [ConstructorName('Empty')]
+    CardTypeNTDG() {} <# END CardTypeNTDG() [ConstructorName('Empty')] #>
+
+    [ConstructorName('CardFromApi')]
+    CardTypeNTDG(
+         [string]$code
+        ,[string]$name
+        ,[string]$side_code
+        ,[boolean]$is_subtype
+        ,[int]$position
+    ) {
+        $this.code       = $code
+        $this.name       = $name
+        $this.side_code  = $side_code
+        $this.is_subtype = $is_subtype
+        $this.position   = $position
+
+    } <# END CardTypeNTDG() [ConstructorName('CardFromApi')] #>
+
+}<# END class CardTypeNTDG #>
+
+
+
