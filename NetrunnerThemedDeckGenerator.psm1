@@ -86,7 +86,7 @@ PARAM(
 )
     DynamicParam {
         $set = $CardSet.Title
-        (New-DynamicParameter -Name 'Title' -ValidateSet $set ) | New-DynamicParameterDictionary 
+        (New-DynamicParameter -Name 'Title' -Type String -ValidateSet $set ) | New-DynamicParameterDictionary 
     }
     BEGIN{}
     PROCESS {
