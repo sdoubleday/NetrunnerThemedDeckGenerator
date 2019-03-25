@@ -91,11 +91,11 @@ class Side {
     [string]$code
 }<# END class Side #>
 
-class Type {
+class CardType {
     [string]$code
     [string]$name
     [string]$side_code
     [boolean]$is_subtype
     [int]$position
-}<# END class Type #>
+}<# END class CardType #>
 
